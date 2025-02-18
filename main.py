@@ -3,8 +3,8 @@ from src.train import train_multilabel_model
 from src.utils.predictor import predict
 
 if __name__ == "__main__":
-    file1 = "/home/karrtik/projects/shrijayan/modernbert/dataset/medical_mimic(1).json"
-    file2 = "/home/karrtik/projects/shrijayan/modernbert/dataset/medical_mimic_new_(1).json"
+    file1 = "dataset/medical_mimic(1).json"
+    file2 = "dataset/medical_mimic_new_(1).json"
 
     print("Training Multilabel Model...")
     trainer = train_multilabel_model(file1, file2)
