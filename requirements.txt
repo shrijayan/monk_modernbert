@@ -2,3 +2,4 @@ datasets
 'transformers[torch]'
 scikit-learn
 torch
+wandb
