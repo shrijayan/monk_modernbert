@@ -116,6 +116,7 @@ class ModernBERTMultilabelFinetuner:
             logging_strategy=config.eval_and_save_strategy,
             logging_steps=config.logging_steps,
             report_to=config.report_to,
+            greater_is_better=config.greater_is_better,
             save_total_limit=config.save_total_limit,
         )
 
@@ -129,7 +130,6 @@ class ModernBERTMultilabelFinetuner:
             train_dataset=dataset['train'],
             eval_dataset=dataset['validation'],
             compute_metrics=self.compute_metrics,
-            greater_is_better=config.greater_is_better,
         )
 
         trainer.train()
