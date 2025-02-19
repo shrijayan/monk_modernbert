@@ -25,7 +25,7 @@ class ModelConfig:
     save_strategy = "best"
     logging_steps: int = 100
     dataset_name: str = "shrijayan/medical_mimic"
-    save_total_limit=3
+    save_total_limit=2
     report_to: str = "wandb"
     output_dir: str = f"/content/drive/MyDrive/Projects/ModernBertTuning/{datetime.datetime.now().strftime('%Y-%m-%d_%H:%M:%S')}"
     logging_dir: str = f"{output_dir}/logs"
