@@ -15,7 +15,7 @@ class ModernBERTMultilabelFinetuner:
     def __init__(
         self,
         model_name: str = config.model_name,
-        max_length: int = 512,
+        max_length: int = config.max_length,
         test_size: float = 0.2,
         output_dir: str = config.output_dir,
     ):
@@ -99,23 +99,25 @@ class ModernBERTMultilabelFinetuner:
 
         default_args = TrainingArguments(
             output_dir=self.output_dir,
-            evaluation_strategy="steps",
-            eval_steps=100,
-            save_strategy="steps",
-            save_steps=100,
-            learning_rate=5e-5,
-            per_device_train_batch_size=16,
-            per_device_eval_batch_size=16,
-            num_train_epochs=10,
-            weight_decay=0.01,
-            load_best_model_at_end=True,
-            metric_for_best_model="combined_f1",
-            warmup_ratio=0.1,
-            max_grad_norm=1.0,
-            logging_dir=f"{self.output_dir}/logs",
-            logging_strategy="steps",
-            logging_steps=100,
-            report_to="wandb"
+            evaluation_strategy=config.eval_and_save_strategy,
+            eval_steps=config.eval_and_save_steps,
+            save_strategy=config.save_strategy,
+            save_steps=config.eval_and_save_steps,
+            learning_rate=config.learning_rate,
+            per_device_train_batch_size=config.batch_size,
+            per_device_eval_batch_size=config.batch_size,
+            num_train_epochs=config.num_epochs,
+            weight_decay=config.weight_decay,
+            load_best_model_at_end=config.load_best_model_at_end,
+            metric_for_best_model=config.metric_for_best_model,
+            greater_is_better=config.greater_is_better,            
+            warmup_ratio=config.warmup_ratio,
+            max_grad_norm=config.max_grad_norm,
+            logging_dir=config.logging_dir,
+            logging_strategy=config.eval_and_save_strategy,
+            logging_steps=config.logging_steps,
+            report_to=config.report_to,
+            save_total_limit=config.save_total_limit,
         )
 
         if training_args:
