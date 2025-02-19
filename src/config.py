@@ -4,7 +4,7 @@ import datetime
 
 @dataclass
 class ModelConfig:
-    model_name: str = "answerdotai/ModernBERT-base"
+    model_name: str = "answerdotai/ModernBERT-large"
     max_length: int = 8192
     batch_size: int = 2
     num_epochs: int = 5
