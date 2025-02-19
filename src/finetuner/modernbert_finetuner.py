@@ -3,7 +3,7 @@ from typing import Dict, List, Optional
 from datasets import Dataset, DatasetDict
 from transformers import AutoTokenizer, TrainingArguments
 from sklearn.model_selection import train_test_split
-from sklearn.metrics import f1_score, accuracy_score, precision_recall_fscore_support
+from sklearn.metrics import accuracy_score, precision_recall_fscore_support
 import numpy as np
 
 from src.models.modernbert import ModernBERTForMultilabel
@@ -21,7 +21,7 @@ class ModernBERTMultilabelFinetuner:
         self.max_length = max_length
         self.test_size = test_size
         self.output_dir = output_dir
-        self.tokenizer = AutoTokenizer.from_pretrained(model_name, reference_compile=False)
+        self.tokenizer = AutoTokenizer.from_pretrained(model_name)
         self.severity_mapping = {'low': 0, 'medium': 1, 'high': 2, 'critical': 3}
 
     def prepare_dataset(self, texts: List[str], labels: List[List]) -> DatasetDict:

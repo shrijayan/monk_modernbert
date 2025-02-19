@@ -5,11 +5,10 @@ from transformers import AutoModelForSequenceClassification, PreTrainedModel
 
 class ModernBERTForMultilabel(PreTrainedModel):
     def __init__(self, model_name, num_severity_labels=4):
-        super().__init__(AutoModelForSequenceClassification.from_pretrained(model_name, reference_compile=False).config)
+        super().__init__(AutoModelForSequenceClassification.from_pretrained(model_name).config)
         self.num_severity_labels = num_severity_labels
         self.bert = AutoModelForSequenceClassification.from_pretrained(
             model_name,
-            reference_compile=False,
             num_labels=num_severity_labels + 1  # severity + action
         )
 
