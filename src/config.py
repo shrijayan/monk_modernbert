@@ -1,5 +1,6 @@
 # config.py
 from dataclasses import dataclass
+import datetime
 
 @dataclass
 class ModelConfig:
@@ -20,3 +21,4 @@ class ModelConfig:
     logging_steps: int = 10
     dataset_name: str = "shrijayan/medical_mimic"
     report_to: str = "wandb"
+    output_dir: str = f"/content/drive/MyDrive/Projects/ModernBertTuning/{datetime.datetime.now().strftime('%Y-%m-%d_%H:%M:%S')}"

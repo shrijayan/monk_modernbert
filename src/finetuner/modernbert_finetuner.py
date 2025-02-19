@@ -17,7 +17,7 @@ class ModernBERTMultilabelFinetuner:
         model_name: str = config.model_name,
         max_length: int = 512,
         test_size: float = 0.2,
-        output_dir: str = "modernbert-multilabel",
+        output_dir: str = config.output_dir,
     ):
         self.model_name = model_name
         self.max_length = max_length
