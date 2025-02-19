@@ -21,7 +21,7 @@ class ModernBERTMultilabelFinetuner:
         self.max_length = max_length
         self.test_size = test_size
         self.output_dir = output_dir
-        self.tokenizer = AutoTokenizer.from_pretrained(model_name)
+        self.tokenizer = AutoTokenizer.from_pretrained(model_name, reference_compile=False)
         self.severity_mapping = {'low': 0, 'medium': 1, 'high': 2, 'critical': 3}
 
     def prepare_dataset(self, texts: List[str], labels: List[List]) -> DatasetDict:
