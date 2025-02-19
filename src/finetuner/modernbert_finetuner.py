@@ -110,7 +110,6 @@ class ModernBERTMultilabelFinetuner:
             weight_decay=config.weight_decay,
             load_best_model_at_end=config.load_best_model_at_end,
             metric_for_best_model=config.metric_for_best_model,
-            greater_is_better=config.greater_is_better,            
             warmup_ratio=config.warmup_ratio,
             max_grad_norm=config.max_grad_norm,
             logging_dir=config.logging_dir,
@@ -130,6 +129,7 @@ class ModernBERTMultilabelFinetuner:
             train_dataset=dataset['train'],
             eval_dataset=dataset['validation'],
             compute_metrics=self.compute_metrics,
+            greater_is_better=config.greater_is_better,
         )
 
         trainer.train()
