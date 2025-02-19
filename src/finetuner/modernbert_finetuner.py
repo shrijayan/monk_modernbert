@@ -8,11 +8,13 @@ import numpy as np
 
 from src.models.modernbert import ModernBERTForMultilabel
 from src.trainers.multilabel_trainer import MultilabelTrainer
+from src.config import ModelConfig
+config = ModelConfig()
 
 class ModernBERTMultilabelFinetuner:
     def __init__(
         self,
-        model_name: str = "answerdotai/ModernBERT-base",
+        model_name: str = config.model_name,
         max_length: int = 512,
         test_size: float = 0.2,
         output_dir: str = "modernbert-multilabel",
