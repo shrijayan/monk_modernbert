@@ -9,7 +9,7 @@ def train_multilabel_model(file1: str, file2: str):
 
     multilabel_finetuner = ModernBERTMultilabelFinetuner(
         model_name=config.model_name,
-        output_dir='modernbert-multilabel'
+        output_dir=config.output_dir
     )
 
     dataset = multilabel_finetuner.prepare_dataset(texts, labels)
