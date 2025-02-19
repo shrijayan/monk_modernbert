@@ -2,9 +2,12 @@
 import torch
 from transformers import AutoTokenizer
 from src.models.modernbert import ModernBERTForMultilabel
+from src.config import ModelConfig
+
+config = ModelConfig()
 
 def predict(text: str, model_dir: str):
-    tokenizer = AutoTokenizer.from_pretrained("answerdotai/ModernBERT-base", reference_compile=False)
+    tokenizer = AutoTokenizer.from_pretrained(config.model_name, reference_compile=False)
     model = ModernBERTForMultilabel(model_dir)
     model.load_state_dict(torch.load(f"{model_dir}/pytorch_model.bin"))
     model.eval()
