@@ -113,6 +113,7 @@ class ModernBERTMultilabelFinetuner:
             logging_dir=f"{self.output_dir}/logs",
             logging_strategy="steps",
             logging_steps=100,
+            save_total_limit = 10,
             report_to="wandb"
         )
 
