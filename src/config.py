@@ -27,5 +27,5 @@ class ModelConfig:
     dataset_name: str = "shrijayan/medical_mimic"
     save_total_limit: int = 2
     report_to: str = "wandb"
-    output_dir: str = f"/content/drive/MyDrive/Projects/ModernBertTuning/{datetime.datetime.now().strftime('%Y-%m-%d_%H:%M:%S')}"
+    output_dir: str = f"ModernBertTuning/{datetime.datetime.now().strftime('%Y-%m-%d_%H:%M:%S')}"
     logging_dir: str = f"{output_dir}/logs"
